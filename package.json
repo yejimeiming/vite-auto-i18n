@@ -1,0 +1,53 @@
+{
+  "name": "vite-auto-i18n",
+  "version": "0.1.0",
+  "description": "Auto wrap up i18n function",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "type": "module",
+  "repository": "https://github.com/yejimeiming/vite-auto-i18n.git",
+  "author": "单子哥 <asd308487730@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "types": "tsc --emitDeclarationOnly",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.25.0",
+    "@babel/parser": "^7.25.3",
+    "@babel/traverse": "^7.25.3",
+    "@babel/types": "^7.25.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.1",
+    "vite-plugin-utils": "^0.4.3",
+    "vitest": "^2.0.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite",
+    "plugin",
+    "i18n",
+    "auto"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "vite-auto-i18n-example",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Auto wrap up i18n function",
+  "main": "./dist/index.html",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yejimeiming/vite-auto-i18n.git",
+    "directory": "example"
+  },
+  "author": "单子哥 <asd308487730@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite serve",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "i18next": "^23.14.0",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.1",
+    "vite-auto-i18n": "file:../"
+  }
+}
