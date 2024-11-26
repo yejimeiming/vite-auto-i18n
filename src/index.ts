@@ -48,7 +48,7 @@ export default function i18n(options: I18nOptions = {}): Plugin {
         CallExpression(path1) {
           if (
             t.isIdentifier(path1.node.callee) &&
-            ['jsxDEV', 'jsxs'].includes(path1.node.callee.name)
+            ['jsxDEV', 'jsx', 'jsxs'].includes(path1.node.callee.name)
           ) {
             path1.traverse({
               ObjectProperty(path2) {
@@ -57,6 +57,8 @@ export default function i18n(options: I18nOptions = {}): Plugin {
                     path2.stop()
 
                     if (t.isStringLiteral(path2.node.value)) {
+                      // CASE: jsx("li", { children: "foo" })
+
                       const newNode = t.cloneNode(path2.node)
                       newNode.value = t.callExpression(
                         t.identifier(i18nFnName),
@@ -64,7 +66,10 @@ export default function i18n(options: I18nOptions = {}): Plugin {
                       )
                       path2.replaceWith(newNode)
                       i18nify = true
+
                     } else if (t.isArrayExpression(path2.node.value)) {
+                      // CASE: jsxs("li", { children: ["foo"] })
+
                       path2.node.value.elements = path2.node.value.elements.map((element) => {
                         if (t.isStringLiteral(element)) {
                           return t.callExpression(
